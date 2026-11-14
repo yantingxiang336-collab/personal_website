@@ -2,7 +2,9 @@
 
 React + Vite 个人作品集。首屏使用 React Bits `DotField`，下方沿用 `Particles` 背景。
 
-在线访问：[向研婷 · 数据工程作品集](https://cilare-xiang-portfolio.folksychant1.chatgpt.site/)
+在线访问：[向研婷 · 数据工程作品集](https://yantingxiang336-collab.github.io/personal_website/)
+
+备用地址：[chatgpt.site 版本](https://cilare-xiang-portfolio.folksychant1.chatgpt.site/)
 
 ## 运行
 
