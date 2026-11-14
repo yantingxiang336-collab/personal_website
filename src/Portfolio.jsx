@@ -37,7 +37,8 @@ const Lanyard = React.lazy(() => import('./Lanyard'))
 
 const email = '2598228741@qq.com'
 const phone = '18688339401'
-const resumeReady = true
+const resumeReady = import.meta.env.VITE_RESUME_READY !== 'false'
+const publicAsset = (name) => `${import.meta.env.BASE_URL}${name}`
 const projects = [
   { no: '01', title: '招聘数据可视化', kind: '数据工程 · 可视化部署', summary: '从数据存储与处理出发，完成招聘数据的可视化呈现与部署。', work: ['数据库建模', 'Hadoop / Hive / Spark / HBase 集群部署', 'Sqoop 数据迁移', 'Nginx 部署可视化'], tech: ['Hadoop', 'Hive', 'Spark', 'HBase', 'Sqoop', 'Nginx'] },
   { no: '02', title: '微博热搜监控', kind: '数据采集 · 流式处理', summary: '让热搜数据从采集、流转到清洗校验，形成可追踪的数据处理流程。', work: ['Python 爬虫采集', 'Flume 日志采集', 'Kafka 数据流转', 'Python 生产者 / 消费者完成数据清洗校验'], tech: ['Python', 'Flume', 'Kafka', '数据清洗'] },
@@ -76,13 +77,13 @@ const HeroDotField = React.memo(function HeroDotField({ onReady, startIntro }) {
 })
 
 const HeroBadge = React.memo(function HeroBadge({ onReady }) {
-  return <div className="hero-lanyard"><React.Suspense fallback={null}><Lanyard frontImage="/portrait-arms-balanced.webp" backImage="/portrait-arms-balanced.webp" imageFit="contain" imageScale={1.04} imageOffsetY={0.09} cardColor="#ffffff" strapColor="#d7b8ed" anchor="right" size={0.39} strapLength={0.66} breeze={0.1} damping={0.75} intro={false} introWobble={0.32} onReady={onReady} /></React.Suspense></div>
+  return <div className="hero-lanyard"><React.Suspense fallback={null}><Lanyard frontImage={publicAsset('portrait-arms-balanced.webp')} backImage={publicAsset('portrait-arms-balanced.webp')} imageFit="contain" imageScale={1.04} imageOffsetY={0.09} cardColor="#ffffff" strapColor="#d7b8ed" anchor="right" size={0.39} strapLength={0.66} breeze={0.1} damping={0.75} intro={false} introWobble={0.32} onReady={onReady} /></React.Suspense></div>
 })
 
 function ResumeLink({ className = '' }) {
-  if (!resumeReady) return <span className={`resume-link unavailable ${className}`} title="简历文件待上传">简历待上传 <span aria-hidden="true">↗</span></span>
-  if (className.includes("nav-resume")) return <StarBorder as="a" className={`resume-link ${className}`} href="/resume.pdf" download color="#f8e9ff" trailColor="#c990ff" duration={4} stars={2} trailLength={0.25} thickness={1} radius={14} glow={0.65} hover="lap" sparkle clickPulse backgroundColor="rgba(255,255,255,.06)" borderColor="rgba(255,255,255,.28)">下载简历 <span aria-hidden="true">↗</span></StarBorder>
-  return <a className={`resume-link ${className}`} href="/resume.pdf" download>下载简历 <span aria-hidden="true">↗</span></a>
+  if (!resumeReady) return <a className={`resume-link ${className}`} href={`mailto:${email}?subject=${encodeURIComponent('索取简历')}`}>索取简历 <span aria-hidden="true">↗</span></a>
+  if (className.includes("nav-resume")) return <StarBorder as="a" className={`resume-link ${className}`} href={publicAsset('resume.pdf')} download color="#f8e9ff" trailColor="#c990ff" duration={4} stars={2} trailLength={0.25} thickness={1} radius={14} glow={0.65} hover="lap" sparkle clickPulse backgroundColor="rgba(255,255,255,.06)" borderColor="rgba(255,255,255,.28)">下载简历 <span aria-hidden="true">↗</span></StarBorder>
+  return <a className={`resume-link ${className}`} href={publicAsset('resume.pdf')} download>下载简历 <span aria-hidden="true">↗</span></a>
 }
 
 function SectionHeading({ number, title, className = 'section-heading' }) {
@@ -209,7 +210,7 @@ function App() {
 
       <section className="skills content-width" id="skills"><div className="section-fade"><SectionHeading number="03" title="My Skills" /><SkillExplorer /></div></section>
 
-      <section className="contact" id="contact"><div className="section-fade"><div className="content-width contact-inner"><SectionHeading number="04" title="Contact Me" className="contact-heading" /><div className="contact-grid"><div className="contact-motion-card"><GlassSurface className="contact-glass" {...refractiveGlassProps}><button className="contact-method" type="button" onClick={() => copyContact(email, '邮箱')}><span>EMAIL</span><strong>{email}</strong><small>{copied === '邮箱' ? '已复制邮箱' : '点击卡片复制邮箱'}</small></button></GlassSurface></div><div className="contact-motion-card"><GlassSurface className="contact-glass" {...refractiveGlassProps}><button className="contact-method" type="button" onClick={() => copyContact(phone, '电话')}><span>PHONE</span><strong>{phone}</strong><small>{copied === '电话' ? '已复制电话' : '点击卡片复制电话'}</small></button></GlassSurface></div><div className="contact-motion-card"><GlassSurface className="contact-glass" {...refractiveGlassProps}><a className="contact-method" href="/resume.pdf" download><span>RESUME</span><strong>下载简历 ↗</strong><small>点击卡片下载 PDF</small></a></GlassSurface></div></div><footer><span>向研婷</span><a href="#top">回到顶部 ↑</a></footer></div></div></section>
+      <section className="contact" id="contact"><div className="section-fade"><div className="content-width contact-inner"><SectionHeading number="04" title="Contact Me" className="contact-heading" /><div className="contact-grid"><div className="contact-motion-card"><GlassSurface className="contact-glass" {...refractiveGlassProps}><button className="contact-method" type="button" onClick={() => copyContact(email, '邮箱')}><span>EMAIL</span><strong>{email}</strong><small>{copied === '邮箱' ? '已复制邮箱' : '点击卡片复制邮箱'}</small></button></GlassSurface></div><div className="contact-motion-card"><GlassSurface className="contact-glass" {...refractiveGlassProps}><button className="contact-method" type="button" onClick={() => copyContact(phone, '电话')}><span>PHONE</span><strong>{phone}</strong><small>{copied === '电话' ? '已复制电话' : '点击卡片复制电话'}</small></button></GlassSurface></div><div className="contact-motion-card"><GlassSurface className="contact-glass" {...refractiveGlassProps}>{resumeReady ? <a className="contact-method" href={publicAsset('resume.pdf')} download><span>RESUME</span><strong>下载简历 ↗</strong><small>点击卡片下载 PDF</small></a> : <a className="contact-method" href={`mailto:${email}?subject=${encodeURIComponent('索取简历')}`}><span>RESUME</span><strong>邮件索取简历 ↗</strong><small>点击卡片发送邮件</small></a>}</GlassSurface></div></div><footer><span>向研婷</span><a href="#top">回到顶部 ↑</a></footer></div></div></section>
     </main>
   </div>
 }
