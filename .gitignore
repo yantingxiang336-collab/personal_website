@@ -15,4 +15,3 @@ source-assets/
 preview.*.log
 *.png
 .convert-shoulders.cjs
-public/resume.pdf
