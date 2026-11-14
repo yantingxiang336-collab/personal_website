@@ -1,0 +1,24 @@
+/* A light glass finish for project keywords avoids ten separate SVG filters. */
+.accordion-project-tags .project-keyword-glass {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid rgba(255,255,255,.68);
+  border-radius: 10px;
+  color: #fff4ff;
+  font: 600 13px 'DM Mono', monospace;
+  white-space: nowrap;
+  background: linear-gradient(135deg, rgba(250,240,255,.25), rgba(212,177,240,.15));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.64), inset 0 -1px 3px rgba(227,195,249,.28), 0 6px 15px rgba(18,8,32,.15);
+}
+
+.project-accordion .ag-panel { will-change: transform; }
+.project-accordion .gallery-motion-shell { will-change: transform, opacity; }
+
+@media (min-width: 761px) {
+  #about .about-profile.profile-card {
+    width: min(100%, 1020px);
+    margin: clamp(38px, 6vh, 70px) 0 0 clamp(20px, 6vw, 90px);
+  }
+}

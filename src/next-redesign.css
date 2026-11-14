@@ -1,0 +1,93 @@
+.hero-lanyard {
+  position: absolute;
+  z-index: 4;
+  top: 105px;
+  right: 60px;
+  width: clamp(420px, 37vw, 520px);
+  height: min(70vh, 650px);
+}
+
+.hero-lanyard canvas { background: transparent; }
+.hero:has(.hero-lanyard) .hero-loop { display: none; }
+
+.about-business-card {
+  position: relative;
+  min-height: 470px;
+  padding: clamp(28px, 4vw, 65px);
+  border: 1px solid rgba(255, 255, 255, .33);
+  border-radius: 27px;
+  background: linear-gradient(125deg, rgba(225, 195, 249, .15), rgba(28, 20, 51, .28) 55%, rgba(233, 189, 251, .1));
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, .25), inset 0 -2px 0 rgba(203, 156, 236, .15), 0 25px 75px rgba(0, 0, 0, .2);
+  backdrop-filter: blur(8px);
+}
+
+.about-business-card::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(255, 255, 255, .09);
+  border-radius: 22px;
+  pointer-events: none;
+}
+
+.about-business-card .about-intro { padding-left: 0; }
+.about-business-card .about-facts-open > div { min-height: 64px; }
+
+.project-swap-wrap {
+  width: 100%;
+  min-height: 545px;
+}
+
+.project-swap { min-height: 545px; }
+.project-swap .card-swap-slot { overflow: visible; box-shadow: none; }
+.project-swap .card-swap-card { overflow: visible; background: transparent; }
+.project-swap .card-swap-card-rim { display: none; }
+.project-swap .project-profile { height: 100%; }
+.project-swap .project-profile .profile-card__body { height: 100%; }
+.project-swap .project-profile .profile-card__tile,
+.project-swap .project-profile-content { min-height: 100%; height: 100%; }
+.project-swap .project-profile-content { padding: 25px 23px; }
+.project-swap .project-profile-content h3 { font-size: clamp(24px, 2.2vw, 33px); margin: 20px 0 24px; }
+.project-swap .project-profile-work { gap: 9px; margin-bottom: 18px; }
+.project-swap .project-profile-work p { font-size: 13px; line-height: 1.5; }
+.project-swap .project-profile-tags { gap: 6px; }
+.project-swap .project-profile-tags span { min-height: 30px; font-size: 10px; padding: 5px 9px; }
+.project-future .project-profile-content { align-items: center; justify-content: center; }
+.project-future-mark { color: #e7c5fa; font-size: 110px; line-height: 1; letter-spacing: .1em; }
+
+.skills-folder .folder-float__item { height: 50px; padding: 0 20px; border-radius: 17px; }
+.skills-folder .folder-float__items::before { pointer-events: auto; }
+
+.contact-grid { margin-top: clamp(110px, 14vh, 180px); }
+.contact-glass.glass-surface,
+.contact-method { min-height: 150px; }
+.contact-method {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: #fff7ff;
+  text-align: left;
+  cursor: pointer;
+  padding: 22px 26px;
+}
+.contact-method strong { font-size: clamp(17px, 1.45vw, 22px); overflow-wrap: anywhere; }
+.contact-method small { color: #cbb8d8; font-size: 11px; }
+.contact-method:focus-visible { outline: 2px solid #dab5f2; outline-offset: -7px; border-radius: 22px; }
+
+@media (max-width: 1100px) {
+  .hero-lanyard { right: 0; width: 260px; height: 500px; top: 150px; }
+  .project-swap-wrap { overflow: hidden; }
+}
+
+@media (max-width: 760px) {
+  .hero-lanyard { top: auto; bottom: 90px; right: 0; width: 180px; height: 300px; opacity: .85; }
+  .about-business-card { grid-template-columns: 1fr; min-height: 0; padding: 28px 22px; }
+  .project-swap-wrap, .project-swap { min-height: 500px; }
+  .project-swap { transform: scale(.72); transform-origin: left top; width: 138%; }
+  .contact-grid { margin-top: 85px; }
+}
+
+@media (max-width: 500px) {
+  .hero-lanyard { width: 155px; height: 265px; bottom: 105px; }
+  .project-swap { transform: scale(.62); width: 161%; }
+}

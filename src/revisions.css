@@ -1,0 +1,24 @@
+.nav-brand{font-size:16px;letter-spacing:0}
+.hero-center{width:100%}
+.hero .hero-title{font-size:clamp(55px,8vw,132px);letter-spacing:-.075em;line-height:1.15;max-width:100%;margin:0 auto;font-weight:800}
+.hero-bottom{justify-content:flex-start}
+.about-statement{min-height:360px;border:0;background:none;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:20px 0 20px 7%}
+.about-statement strong{font-size:clamp(48px,5vw,82px);line-height:1.2;letter-spacing:-.07em}
+.about-statement>span{font-size:clamp(31px,3vw,50px);font-weight:700;line-height:1.4;color:#dcb2e9;margin-top:16px}
+.about-layout{grid-template-columns:.85fr 1.15fr;gap:50px}
+.project-list{grid-template-columns:repeat(2,minmax(0,440px));justify-content:center;gap:32px}
+.project-card{min-height:430px;padding:27px 23px;grid-template-columns:48px 1fr 24px;gap:10px}
+.project-main h3{font-size:clamp(23px,2.2vw,33px)}
+.project-main>p{font-size:13px;margin-bottom:19px}
+.project-work{padding-top:16px}
+.project-work ul{gap:8px;margin:11px 0 19px}
+.project-work li{font-size:12px}
+.tags span{padding:6px 8px;font-size:9px}
+.contact h2{font-size:clamp(65px,10vw,150px);line-height:1.14}
+.ambient{overflow:hidden}
+.ambient:before,.ambient:after{content:'';position:absolute;inset:-30%;pointer-events:none;background-image:radial-gradient(circle,rgba(255,255,255,.8) 0 1.5px,transparent 2px),radial-gradient(circle,rgba(220,163,241,.7) 0 1px,transparent 1.8px),radial-gradient(circle,rgba(248,190,218,.6) 0 2px,transparent 2.7px);background-size:175px 175px,255px 255px,390px 390px;background-position:0 0,60px 90px,140px 50px;opacity:.48;animation:star-drift 19s linear infinite}
+.ambient:after{opacity:.25;transform:rotate(12deg);animation-duration:31s;animation-direction:reverse}
+@keyframes star-drift{from{translate:0 0}to{translate:0 175px}}
+@media(max-width:760px){.hero .hero-title{font-size:clamp(52px,10vw,85px)}.about-layout{grid-template-columns:1fr;gap:20px}.about-statement{min-height:190px;padding:0}.project-list{grid-template-columns:1fr}.project-card{width:min(100%,530px);margin-inline:auto}.contact h2{font-size:clamp(58px,11vw,90px)}}
+@media(max-width:500px){.hero .hero-title{font-size:clamp(47px,11vw,70px)}.about-statement strong{font-size:55px}.about-statement>span{font-size:33px}.project-card{grid-template-columns:1fr 24px}.contact h2{font-size:59px}}
+@media(prefers-reduced-motion:reduce){.ambient:before,.ambient:after{animation:none}}

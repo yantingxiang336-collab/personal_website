@@ -1,0 +1,25 @@
+.hero-line {
+  width: min(100%, 680px);
+  animation: none;
+}
+
+.hero-line.second {
+  width: min(calc(100% - 42px), 680px);
+}
+
+.hero-line .stroke-text__svg {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.hero-name .shiny-text {
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+}
+
+@media (max-width: 760px) {
+  .hero-line.second {
+    width: min(calc(100% - 17px), 680px);
+  }
+}

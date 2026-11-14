@@ -1,0 +1,107 @@
+.hero-lanyard {
+  position: absolute;
+  top: -115px;
+  left: 50%;
+  right: auto;
+  width: 100vw;
+  height: calc(100% + 115px);
+  min-height: 0;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.hero-center { z-index: 3; pointer-events: none; }
+.hero-down-arrow { z-index: 4; }
+
+.about, .projects, .skills, .contact { border-top: 0; }
+.projects, .skills, .contact { position: relative; }
+.projects::before, .skills::before, .contact::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: -160px;
+  width: 100vw;
+  height: 330px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 50%, rgba(83, 43, 110, .13), transparent 69%);
+}
+
+.projects .section-heading { margin-left: clamp(20px, 4vw, 75px); }
+.skills .section-heading { margin-left: clamp(55px, 10vw, 175px); }
+.contact-heading { margin-left: clamp(15px, 4vw, 75px); }
+.contact-grid { margin-top: clamp(145px, 18vh, 230px); }
+
+.project-marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 27px 0;
+  border-radius: 35px;
+  background: linear-gradient(125deg, rgba(51, 34, 76, .44), rgba(16, 12, 34, .69) 52%, rgba(64, 31, 80, .42));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.16), inset 0 -1px 0 rgba(212,167,244,.12), 0 28px 75px rgba(0,0,0,.18);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 2.5%, #000 97.5%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 2.5%, #000 97.5%, transparent);
+}
+
+.project-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: project-marquee-scroll 34s linear infinite;
+  will-change: transform;
+}
+.project-marquee:hover .project-marquee-track,
+.project-marquee:focus-within .project-marquee-track { animation-play-state: paused; }
+.project-marquee-set { display: flex; gap: 18px; padding-right: 18px; }
+@keyframes project-marquee-scroll { to { transform: translateX(-50%); } }
+
+.marquee-project-card.spotlight-card {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  width: clamp(245px, 21.2vw, 365px);
+  height: 440px;
+  padding: 28px 27px;
+  border-radius: 27px;
+  background: linear-gradient(150deg, #291c40, #171125 65%, #2a1b3b);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 16px 35px rgba(0,0,0,.25);
+  color: #f6edff;
+  transition: transform .28s ease, box-shadow .28s ease;
+}
+.marquee-project-card.spotlight-card:hover {
+  transform: translateY(-7px);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.18), 0 24px 47px rgba(0,0,0,.36);
+}
+.marquee-project-card .spotlight-card__light { mix-blend-mode: screen; }
+.marquee-project-number { color: #d2a8e9; font: 600 15px 'DM Mono', monospace; }
+.marquee-project-card h3 { margin: 25px 0 24px; font-size: clamp(23px, 1.8vw, 30px); line-height: 1.23; letter-spacing: -.05em; }
+.marquee-project-work { display: grid; gap: 8px; }
+.marquee-project-work p { margin: 0; color: #e9dff0; font-size: 12.5px; line-height: 1.48; }
+.marquee-project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+.marquee-project-tags span {
+  padding: 6px 8px;
+  border: 1px solid rgba(226,193,247,.31);
+  border-radius: 8px;
+  background: rgba(228,194,245,.075);
+  color: #e8d0f7;
+  font: 600 10px 'DM Mono', monospace;
+}
+.marquee-project-card.is-future { align-items: center; justify-content: center; }
+.marquee-project-ellipsis { color: #dab7ed; font-size: 94px; line-height: 1; }
+
+@media (max-width: 760px) {
+  .hero-lanyard { top: -90px; left: 50%; right: auto; width: 100vw; height: calc(100% + 90px); min-height: 0; opacity: .9; }
+  .hero-center { pointer-events: none; }
+  .projects .section-heading { margin-left: 12px; }
+  .skills .section-heading { margin-left: 42px; }
+  .contact-heading { margin-left: 12px; }
+  .project-marquee { padding: 18px 0; }
+  .marquee-project-card.spotlight-card { width: 260px; height: 415px; padding: 24px 22px; }
+  .contact-grid { margin-top: 100px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-marquee-track { animation: none; }
+  .marquee-project-card.spotlight-card { transition: none; }
+}

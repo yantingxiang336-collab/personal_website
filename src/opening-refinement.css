@@ -1,0 +1,132 @@
+/* Let the atmosphere arrive with the lettering while 3D badge setup waits. */
+.hero-field { animation: hero-atmosphere-in .48s ease-out both; }
+.ambient { animation: hero-atmosphere-in .58s ease-out both; }
+@keyframes hero-atmosphere-in {
+  from { opacity: .55; }
+  to { opacity: 1; }
+}
+.hero-field .dot-field,
+.ambient .particles-container { animation: hero-particles-in .45s ease-out both; }
+@keyframes hero-particles-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.hero-field::before {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  pointer-events: none;
+  opacity: .24;
+  background-image:
+    radial-gradient(circle at 17% 31%, rgba(255,255,255,.8) 0 1px, transparent 1.7px),
+    radial-gradient(circle at 71% 67%, rgba(214,175,235,.8) 0 1.2px, transparent 2px),
+    radial-gradient(circle at 36% 82%, rgba(238,194,244,.6) 0 .8px, transparent 1.6px);
+  background-size: 237px 211px, 313px 269px, 397px 353px;
+  animation: hero-specks-drift 18s ease-in-out infinite alternate;
+}
+@keyframes hero-specks-drift {
+  from { transform: translate3d(-8px, -4px, 0); }
+  to { transform: translate3d(12px, 9px, 0); }
+}
+
+.hero-lanyard .lanyard {
+  position: absolute;
+  inset: 0;
+}
+.lanyard-poster {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity .4s ease;
+}
+.lanyard-poster--hidden { opacity: 0; }
+.lanyard-poster__strap {
+  position: absolute;
+  top: 0;
+  left: 73.3%;
+  width: 38px;
+  height: clamp(290px, 36vh, 380px);
+  transform: translateX(-50%) rotate(-7deg);
+  transform-origin: top center;
+  background: linear-gradient(90deg, #c8a4e3, #e5d0f4 46%, #cba9e5);
+  box-shadow: inset 2px 0 3px rgba(255,255,255,.38), inset -2px 0 3px rgba(81,43,111,.22);
+}
+.lanyard-poster__clip {
+  position: absolute;
+  top: calc(clamp(300px, 36vh, 390px) - 20px);
+  left: 73.3%;
+  width: 49px;
+  height: 25px;
+  transform: translateX(-50%) rotate(-6deg);
+  border: 1px solid #9696a0;
+  border-radius: 6px;
+  background: linear-gradient(145deg, #e4e5e7, #a0a3a8);
+  box-shadow: 0 5px 8px rgba(0,0,0,.28);
+}
+.lanyard-poster__card {
+  position: absolute;
+  top: calc(clamp(300px, 36vh, 390px) + 4px);
+  left: 73.3%;
+  width: clamp(225px, 19.6vw, 312px);
+  aspect-ratio: .71;
+  overflow: hidden;
+  transform: translateX(-50%) rotate(-1deg);
+  border: 1px solid rgba(160,153,162,.55);
+  border-radius: 24px;
+  background: linear-gradient(145deg, #fff 20%, #f0eff1 100%);
+  box-shadow: 6px 17px 32px rgba(3,2,10,.33), inset 0 1px 0 #fff;
+}
+.lanyard-poster__slot {
+  position: absolute;
+  z-index: 2;
+  top: 16px;
+  left: 50%;
+  width: 64px;
+  height: 13px;
+  transform: translateX(-50%);
+  border-radius: 9px;
+  background: #251a35;
+}
+.lanyard-poster__card img {
+  position: absolute;
+  inset: auto 0 0;
+  width: 100%;
+  height: calc(100% - 34px);
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+@media (min-width: 761px) {
+  #about .about-profile.profile-card {
+    width: min(100%, 960px);
+    margin: clamp(40px, 6vh, 70px) auto 0;
+  }
+  #about .about-profile .profile-card__tile,
+  #about .about-profile .about-business-card { min-height: 480px; }
+  #about .about-profile .about-business-card {
+    grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr);
+    gap: clamp(28px, 4vw, 58px);
+  }
+  #about .about-profile .about-intro {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 760px) {
+  .lanyard-poster__card { left: 74%; top: 310px; width: clamp(145px, 28vw, 210px); }
+  .lanyard-poster__strap { left: 74%; height: 310px; width: 25px; }
+  .lanyard-poster__clip { left: 74%; top: 290px; width: 38px; height: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-field, .ambient, .hero-field .dot-field, .ambient .particles-container, .hero-field::before { animation: none; }
+  .lanyard-poster { transition: none; }
+}

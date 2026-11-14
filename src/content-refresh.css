@@ -1,0 +1,32 @@
+.hero-down-arrow,
+.hero-down-arrow:hover { color: rgba(201,144,255,.1); }
+
+.about-layout { grid-template-columns: .68fr 1.32fr; gap: 5%; }
+.about-intro { padding-left: clamp(20px, 3vw, 46px); }
+.about-intro::after { content: none; }
+.about-intro > .about-english {
+  margin-top: 8px;
+  color: #e5c9f2;
+  font-size: clamp(22px, 2.3vw, 36px);
+  font-weight: 600;
+  letter-spacing: -.025em;
+  white-space: nowrap;
+}
+.about-intro > .about-age { margin-top: 10px; }
+.about-facts-open > div:first-child { grid-template-columns: 86px minmax(0,1fr) auto; gap: 12px; }
+.about-facts-open > div:first-child strong { white-space: nowrap; font-size: clamp(11px, 1vw, 14px); }
+.about-facts-open > div:first-child small { grid-column: auto; white-space: nowrap; }
+
+.project-glow .project-inner { grid-template-columns: 55px minmax(0,1fr); }
+.project-main h3 { margin: 0 0 24px; font-size: clamp(28px, 2.7vw, 42px); }
+.project-work > span { font-size: 12px; }
+.project-work li { font-size: clamp(14px, 1.15vw, 17px); line-height: 1.65; }
+.tags span { font-size: 11px; }
+
+@media (max-width: 760px) {
+  .about-layout { grid-template-columns: 1fr; gap: 32px; }
+  .about-intro { padding-left: 10px; }
+  .about-facts-open > div:first-child { grid-template-columns: 1fr; gap: 6px; }
+  .about-facts-open > div:first-child strong { white-space: normal; font-size: 14px; }
+  .project-glow .project-inner { grid-template-columns: 43px minmax(0,1fr); }
+}

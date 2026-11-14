@@ -1,0 +1,108 @@
+body, #root { overflow-x: clip; }
+
+.hero-lanyard {
+  top: -115px;
+  right: -125px;
+  width: min(52vw, 720px);
+  height: calc(100vh + 145px);
+  min-height: 860px;
+}
+
+.about-profile.profile-card {
+  width: min(100%, 1120px);
+  max-width: none;
+  margin: 0 auto;
+  --pc-frame: rgba(216, 176, 244, .12) !important;
+  --pc-frame-edge: rgba(255, 255, 255, .3) !important;
+  --pc-frame-highlight: rgba(255, 255, 255, .44) !important;
+}
+
+.about-profile .profile-card__body { padding: 8px; border: 1px solid rgba(255,255,255,.3); }
+.about-profile .profile-card__tile {
+  display: block;
+  height: auto;
+  min-height: 430px;
+  aspect-ratio: auto;
+  background: linear-gradient(140deg, rgba(66,45,89,.8), rgba(21,16,43,.88) 65%, rgba(49,29,69,.82));
+}
+.about-profile .profile-card__holo { opacity: calc(var(--pc-holo) * .38 * (0.5 + 0.5 * var(--pc-active))); }
+.about-profile .about-business-card {
+  z-index: 2;
+  min-height: 430px;
+  width: 100%;
+  margin: 0;
+  padding: clamp(28px, 3vw, 45px);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+.about-profile .about-business-card::before { display: none; }
+.about-profile .about-intro strong { font-size: clamp(55px,5vw,83px); }
+
+.project-bounce-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 550px;
+  overflow: visible;
+}
+.project-bounce.bounce-cards { flex: none; max-width: 100%; }
+.project-bounce .bounce-cards__card {
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.42);
+  background: linear-gradient(145deg,rgba(230,199,250,.13),rgba(30,20,52,.32) 60%,rgba(199,151,237,.13));
+  backdrop-filter: blur(14px) saturate(1.35);
+  -webkit-backdrop-filter: blur(14px) saturate(1.35);
+  box-shadow: inset 0 2px 1px rgba(255,255,255,.4), inset 0 -2px 6px rgba(194,148,225,.17), 0 20px 42px rgba(0,0,0,.3);
+  -webkit-mask-image: linear-gradient(90deg,transparent 0%,#000 7%,#000 88%,transparent 100%);
+  mask-image: linear-gradient(90deg,transparent 0%,#000 7%,#000 88%,transparent 100%);
+  transition: filter .35s ease, box-shadow .35s ease, -webkit-mask-image .35s ease;
+}
+.project-bounce:has(.bounce-cards__card[data-active]) .bounce-cards__card:not([data-active]) {
+  filter: blur(3px) brightness(.72);
+}
+.project-bounce .bounce-cards__card[data-active] {
+  -webkit-mask-image: none;
+  mask-image: none;
+  box-shadow: inset 0 2px 1px rgba(255,255,255,.5), 0 28px 60px rgba(0,0,0,.42), 0 0 30px rgba(207,168,242,.22);
+}
+.bounce-project-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 32px 26px 27px;
+  color: #fff8ff;
+  text-shadow: 0 1px 8px rgba(14,8,28,.4);
+}
+.bounce-project-content > span { color:#e5b9f1; font: 600 17px 'DM Mono',monospace; }
+.bounce-project-content h3 { margin: 24px 0 26px; font-size: clamp(26px,2.2vw,36px); line-height:1.2; letter-spacing:-.045em; }
+.bounce-project-work { display:grid;gap:8px; }
+.bounce-project-work p { margin:0; font-size:14px; line-height:1.5; }
+.bounce-project-tags { display:flex;flex-wrap:wrap;gap:7px;margin-top:auto; }
+.bounce-project-tags span {
+  padding:6px 9px;
+  border:1px solid rgba(255,255,255,.3);
+  border-radius:9px;
+  background:linear-gradient(140deg,rgba(255,255,255,.23),rgba(255,255,255,.04));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.28);
+  font:600 10px 'DM Mono',monospace;
+}
+.bounce-project-placeholder { display:grid;place-items:center;height:100%;color:#e7c5fa;font-size:92px;line-height:1; }
+
+@media(max-width:1250px) {
+  .project-bounce-wrap { overflow:hidden; }
+  .project-bounce { transform:scale(.82);transform-origin:center top; }
+}
+@media(max-width:760px) {
+  .hero-lanyard { top:0;right:-30px;width:280px;height:610px;min-height:0;opacity:.9; }
+  .about-profile .about-business-card { grid-template-columns:1fr; }
+  .project-bounce-wrap { min-height:400px; }
+  .project-bounce { transform:scale(.55);transform-origin:center top; }
+}
+@media(max-width:500px) {
+  .hero-lanyard { width:230px;height:520px;top:130px;right:-15px; }
+  .project-bounce { transform:scale(.39); }
+  .project-bounce-wrap { min-height:300px; }
+}

@@ -1,0 +1,8 @@
+.nav-shell.pixel-card{background:transparent;--pixel-card-surface:transparent;border:1px solid rgba(255,255,255,.52);backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:inset 0 2px 1px rgba(255,255,255,.62),inset 0 -3px 4px rgba(205,178,240,.24),inset 3px 0 5px rgba(255,255,255,.12),inset -3px 0 5px rgba(255,255,255,.1),0 16px 30px rgba(0,0,0,.24),0 0 1px rgba(255,255,255,.85)}
+.nav-shell.pixel-card::before{content:'';position:absolute;inset:0;padding:7px;z-index:0;border-radius:inherit;pointer-events:none;background:rgba(255,255,255,.025);backdrop-filter:blur(3px) brightness(1.16) contrast(1.14);-webkit-backdrop-filter:blur(3px) brightness(1.16) contrast(1.14);mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor}
+.nav-shell.pixel-card::after{box-shadow:inset 0 1px 0 rgba(255,255,255,.7),inset 0 -1px 0 rgba(255,255,255,.18),inset 1px 0 0 rgba(255,255,255,.36),inset -1px 0 0 rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.34)}
+.nav-shell .nav-glass{background:transparent}
+.nav-resume{background:transparent;border:1px solid rgba(255,255,255,.48);box-shadow:inset 0 1px 0 rgba(255,255,255,.28)}
+.hero .hero-name{overflow:visible}
+.hero-depth{color:#f3e9ff}
+@media(max-width:760px){.hero-depth{--depth-text-font-size:clamp(3.2rem,11vw,5.3rem)}}

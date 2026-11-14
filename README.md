@@ -15,8 +15,7 @@ pnpm dev
 
 ## 替换资料
 
-- 邮箱、电话和简历下载已接入 `src/Portfolio.jsx` 与 `public/resume.pdf`。
+- 邮箱、电话和简历下载入口已接入 `src/Portfolio.jsx`。公开源码仓库不包含个人简历 PDF；本地预览时可将简历放在 `public/resume.pdf`。
 - 项目与技能内容也位于 `src/Portfolio.jsx`，便于后续迭代。
 
 技能说明根据用户提供的简历整理；项目卡片加入 `PixelCard` 与 `BorderGlow` 效果。
-

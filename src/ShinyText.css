@@ -1,0 +1,3 @@
+.shiny-text{display:inline-block;color:var(--shine-base);background:linear-gradient(110deg,var(--shine-base) 25%,var(--shine-light) 46%,var(--shine-base) 67%);background-size:230% 100%;background-position:130% 0;background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shiny-sweep var(--shine-speed) ease-in-out infinite}
+@keyframes shiny-sweep{0%,15%{background-position:130% 0}75%,100%{background-position:-130% 0}}
+@media(prefers-reduced-motion:reduce){.shiny-text{animation:none;background:none;-webkit-text-fill-color:currentColor}}

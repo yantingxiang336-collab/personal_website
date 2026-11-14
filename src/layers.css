@@ -1,0 +1,3 @@
+.ambient{z-index:0;background:radial-gradient(circle at 12% 18%,rgba(238,196,246,.8) 0 1px,transparent 2px),radial-gradient(circle at 78% 32%,rgba(245,222,255,.8) 0 1px,transparent 2px),radial-gradient(circle at 42% 74%,rgba(201,144,255,.65) 0 1px,transparent 2px),radial-gradient(circle at 90% 86%,rgba(244,184,215,.65) 0 1px,transparent 2px),radial-gradient(ellipse at 48% 15%,#25203b 0%,#100d22 52%,#090914 100%);background-size:360px 360px,460px 460px,540px 540px,650px 650px,100% 100%}
+.ambient-wash{z-index:1}
+main{position:relative;z-index:2}
